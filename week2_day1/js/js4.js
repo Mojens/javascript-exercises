@@ -168,3 +168,27 @@ document.getElementById("brand").onclick = () => sortByBrand();
 /* 
 Sorter brand ~ END 
 */
+
+/* 
+Sorter ID ~ START 
+*/
+/* 
+Sorter ID ~ END 
+*/
+
+/*
+Sorter Model ~ START 
+*/
+
+/* 
+Sorter Model ~ END 
+*/
+
+/* 
+Sorter Årgang ~ START 
+*/
+
+/* 
+Sorter Årgang ~ END 
+*/
+
