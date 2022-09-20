@@ -1,0 +1,12 @@
+.my-div {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    margin: 1px;
+    display: inline-block;
+}
+
+.my-div-outer {
+    background-color: blue;
+    display: inline-block;
+}
