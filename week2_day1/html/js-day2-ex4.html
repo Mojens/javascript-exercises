@@ -5,9 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="../css/css4.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <a href="../../index.html"><button>Gå til start</button></a>
+    <h2>JS Week2, day2-Exercise - 4</h2>
+    <table class="table" id="carsTable">
+        <thead>
+        <tr>
+            <th id="id">
+                ID
+            </th>
+            <th id="year">
+                Årgang
+            </th>
+            <th id="brand">
+                Brand
+            </th>
+            <th id="model">
+                Model
+
+            </th>
+            <th id="price">
+                Pris
+            </th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+          
+        </tbody>
     
+    </table>
+    <div class="filterContainer">
+        <label>Indtast en pris</label>
+        <input class="w3-input" type="text" id="input-price">
+    <button class="button" id="filterbtn1">Mindre end</button>
+    <button class="button" id="filterbtn2">Større end</button>
+    <button class="button" id="clearbtn">Ryd Filter</button>
+    </div>
+    <div class="filterContainer">
+        <label>Indtast en mærke</label>
+        <input class="w3-input" type="text" id="input-brand">
+    <button class="button" id="filterbtn3">Find brand</button>
+    </div>
+
+    <script src="../js/js4.js"></script>
 </body>
 </html>
