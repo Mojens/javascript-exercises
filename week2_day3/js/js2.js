@@ -14,7 +14,7 @@ function loadDataMember() {
         .then(userData => {
             //Her kan vi arbejde med data
             const ul = userData.map(user => {
-                return `<tr><td>${user.username}</td><td>${user.email}</td><td>${user.firstName + " " + user.lastName}</td></tr>`
+                return `<tr><td>${user.username}</td><td>${user.email}</td><td>${user.firstName + " " + user.lastName}</td><td>${user.street}</td><td>${user.city}</td><td>${user.zip}</td></tr>`
             })
             const ulAsString = ul.join("")
             document.getElementById("tbody_member").innerHTML = ulAsString
@@ -123,7 +123,7 @@ function addMember() {
             const addedMember = `<tr><td>${addedMemberData.username}</td><td>${addedMemberData.email}</td><td>${addedMemberData.firstName + " " + addedMemberData.lastName}</td></tr>`
             document.getElementById("tbody_addedMember").innerHTML = addedMember
         }).catch(e => {
-            document.getElementById("tbody_addedMember").innerHTML = "<tr><td>No member found</td><td>No member found</td><td>No member found</td></tr>"
+            document.getElementById("tbody_addedMember").innerHTML = "<tr><td>No member Added</td><td>No member Added</td><td>No member Added</td></tr>"
             console.error(e)
         })
 }
@@ -147,10 +147,95 @@ function addCar() {
             document.getElementById("tbody_addedCar").innerHTML = addedCar
         })
         .catch(e => {
-            document.getElementById("tbody_addedCar").innerHTML = "<tr><td>No car found</td><td>No car found</td><td>No car found</td><td>No car found</td><td>No car found</td></tr>"
+            document.getElementById("tbody_addedCar").innerHTML = "<tr><td>No car Added</td><td>No car Added</td><td>No car Added</td><td>No car Added</td><td>No car Added</td></tr>"
             console.error(e)
         })
 }
 document.getElementById("addcarbtn").onclick = () => addCar();
+
+/////////////////////////////////////// EDIT METHODS ///////////////////////////////////////////////////////////////
+
+let memberId2 = document.getElementById("inputmemberid2").value;
+function loadDataMemberByUserName2(memberId2) {
+    memberId2 = document.getElementById("inputmemberid2").value;
+    let NEW_MEMBER_URL = URL_MEMBER + memberId2;
+    fetch(NEW_MEMBER_URL)
+        .then(function (r) {
+            if (!r.ok) {
+                return Promise.reject("UPPPS", r.status)
+            }
+            return r.json()  //Returns a promise
+        })
+        .then(memberData => {
+            //Her kan vi arbejde med data
+            const member = `<tr><td>${memberData.username}</td><td>${memberData.email}</td><td>${memberData.firstName + " " + memberData.lastName}</td></tr>`
+
+            document.getElementById("tbody_findmember2").innerHTML = member
+            console.log(memberData)
+            return memberData;
+        })
+        .catch(e => {
+            document.getElementById("tbody_findmember2").innerHTML = "<tr><td>No member found</td><td>No member found</td><td>No member found</td></tr>"
+            console.error(e)
+        })
+
+}
+
+document.getElementById("searchmemberbtn2").onclick = () => loadDataMemberByUserName2(memberId2);
+
+function readRowId(){
+    let row = document.getElementById("found2membertable").rows[1];
+    console.log(row);
+    let id = row.cells[0].innerHTML;
+    console.log(id);
+}
+
+
+
+function editMember() {
+    let row = document.getElementById("found2membertable").rows[1];
+    let id = row.cells[0].innerHTML;
+if(document.getElementById("inputEmailEdit").value === ""){
+
+}
+
+
+
+
+    const editedMember = {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+            username: id,
+            email: document.getElementById("inputEmailEdit").value,
+            password: document.getElementById("inputPasswordEdit").value,
+            firstName: document.getElementById("inputFirstNameEdit").value,
+            lastName: document.getElementById("inputLastNameEdit").value,
+            street: document.getElementById("inputStreetEdit").value,
+            city: document.getElementById("inputCityEdit").value,
+            zip: document.getElementById("inputZipEdit").value
+        })
+    }
+    
+    let NEW_MEMBER_URL = URL_MEMBER + id;
+    fetch(NEW_MEMBER_URL,editedMember)
+    .then(r => r.json())
+    .then(editedMemberData => {
+        document.getElementById("succesfulEdit").innerHTML = "Member: "+ id +", is now edited"
+        console.log(editedMemberData)
+
+    })
+    .catch(e => {
+        document.getElementById("failedEdit").innerHTML = "Member: "+ id +", is not edited"
+        console.error(e)
+    })
+
+}
+document.getElementById("editmemberbtn").onclick = () => editMember();
+
+function editCar() {
+
+}
+
 
 

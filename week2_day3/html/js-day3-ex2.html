@@ -48,6 +48,15 @@
                             <th id="name">
                                 Name
                             </th>
+                            <th id="name">
+                                Street
+                            </th>
+                            <th id="name">
+                                City
+                            </th>
+                            <th id="name">
+                                Zip
+                            </th>
                         </tr>
                     </thead>
                     <tbody id="tbody_member">
@@ -219,7 +228,45 @@
             </div>
             <hr style="margin-top: 5%;margin-bottom:5%;">
             </hr>
-
+            <div class="findMemberTable">
+                <h3>Chosen Member</h3>
+                <p id="succesfulEdit"></p>
+                <p id="failedEdit"></p>
+                <table class="table" id="found2membertable">
+                    <thead>
+                        <tr>
+                            <th id="username">
+                                Username
+                            </th>
+                            <th id="email">
+                                E-mail
+                            </th>
+                            <th id="name">
+                                Name
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_findmember2">
+                
+                    </tbody>
+                </table>
+    
+                    <h6>Edit Member</h4>
+                    <input type="text" id="inputEmailEdit" placeholder="E-mail">
+                    <input type="text" id="inputPasswordEdit" placeholder="Password">
+                    <input type="text" id="inputFirstNameEdit" placeholder="First Name">
+                    <input type="text" id="inputLastNameEdit" placeholder="Last Name">
+                    <input type="text" id="inputStreetEdit" placeholder="Street">
+                    <input type="text" id="inputCityEdit" placeholder="City">
+                    <input type="text" id="inputZipEdit" placeholder="Zip">
+                    <button id="editmemberbtn">Edit Member</button>
+            
+            </div>
+            <div class="findMember">
+                <h3>Find Member to edit</h3>
+                <input type="text" id="inputmemberid2" placeholder="Search...">
+                <button id="searchmemberbtn2">Search</button>
+            </div>
         </div>
 
 
