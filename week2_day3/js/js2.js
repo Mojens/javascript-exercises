@@ -118,11 +118,14 @@ function addMember() {
         })
     }
     fetch(URL_MEMBER, createdMember)
-    .then(r => r.json())
-    .then(addedMemberData => {
-        const addedMember = `<tr><td>${addedMemberData.username}</td><td>${addedMemberData.email}</td><td>${addedMemberData.firstName + " " + addedMemberData.lastName}</td></tr>`
-        document.getElementById("tbody_addedMember").innerHTML = addedMember
-    })
+        .then(r => r.json())
+        .then(addedMemberData => {
+            const addedMember = `<tr><td>${addedMemberData.username}</td><td>${addedMemberData.email}</td><td>${addedMemberData.firstName + " " + addedMemberData.lastName}</td></tr>`
+            document.getElementById("tbody_addedMember").innerHTML = addedMember
+        }).catch(e => {
+            document.getElementById("tbody_addedMember").innerHTML = "<tr><td>No member found</td><td>No member found</td><td>No member found</td></tr>"
+            console.error(e)
+        })
 }
 document.getElementById("addmemberbtn").onclick = () => addMember();
 
@@ -138,11 +141,15 @@ function addCar() {
         })
     }
     fetch(URL_CAR, createdCar)
-    .then(r => r.json())
-    .then(addedCarData => {
-        const addedCar = `<tr><td>${addedCarData.id}</td><td>${addedCarData.brand}</td><td>${addedCarData.model}</td><td>${addedCarData.pricePrDay + " DKK"}</td><td>${addedCarData.bestDiscount + " DKK"}</td></tr>`
-        document.getElementById("tbody_addedCar").innerHTML = addedCar
-    })
+        .then(r => r.json())
+        .then(addedCarData => {
+            const addedCar = `<tr><td>${addedCarData.id}</td><td>${addedCarData.brand}</td><td>${addedCarData.model}</td><td>${addedCarData.pricePrDay + " DKK"}</td><td>${addedCarData.bestDiscount + " DKK"}</td></tr>`
+            document.getElementById("tbody_addedCar").innerHTML = addedCar
+        })
+        .catch(e => {
+            document.getElementById("tbody_addedCar").innerHTML = "<tr><td>No car found</td><td>No car found</td><td>No car found</td><td>No car found</td><td>No car found</td></tr>"
+            console.error(e)
+        })
 }
 document.getElementById("addcarbtn").onclick = () => addCar();
 
