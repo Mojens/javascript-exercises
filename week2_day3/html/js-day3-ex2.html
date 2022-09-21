@@ -19,7 +19,7 @@
         <img src="../pictures/CarsRUS_title.png" class="ribbon" alt="" />
     </div>
     <!-- Top section END -->
-    
+
     <div style="margin-left: 10%;width: 75%;margin-right: auto;margin-top: 10%;">
         <h2 style="text-align: center;">Car's 'R' Us Client Demo</h2>
         <!-- Nav section START-->
@@ -27,15 +27,15 @@
             <ul class="nav" style="padding: 10px;margin: auto;">
                 <li class="list"><a href="#allcarsmembers" class="anav">See all Cars / Members</a></li>
                 <li class="list"><a href="#findcarmember" class="anav">Find Car or Member</a></li>
-                <li class="list"><a href="#contact" class="anav">Contact</a></li>
-                <li class="list"><a href="#about" class="anav">About</a></li>
+                <li class="list"><a href="#addcarmember" class="anav">Add Car or Member</a></li>
+                <li class="list"><a href="#editcarmember" class="anav">Edit Car or Member</a></li>
             </ul>
         </div>
         <!-- Nav section END-->
-<!-- Main section START-->
+        <!-- Main section START-->
         <div id="allcarsmembers">
-            <details id="loadmemberbtn" open>
-                <summary>Members</summary>
+            <details id="loadmemberbtn">
+                <summary>See Members</summary>
                 <table class="table">
                     <thead>
                         <tr>
@@ -55,8 +55,8 @@
                     </tbody>
                 </table>
             </details>
-            <details id="loadcarsbtn" open>
-                <summary>Cars</summary>
+            <details id="loadcarsbtn">
+                <summary>See Cars</summary>
                 <table class="table">
                     <thead>
                         <tr>
@@ -80,6 +80,7 @@
                 </table>
             </details>
         </div>
+        <hr style="margin-top: 5%;margin-bottom:5%;"></hr>
         <div id="findcarmember" style="margin:0 auto;" class="findCarMember">
             <div class="findCarTable">
                 <table class="table">
@@ -125,17 +126,95 @@
                 </table>
             </div>
             <br>
-        <div class="findCar">
-            <h3>Find Car</h3>
-            <input type="text" id="inputcarid" placeholder="Search...">
-            <button id="findcarbtn">Search</button>
-        </div>
-        <div class="findMember">
-            <h3>Find Member</h3>
-            <input type="text" id="inputmemberid" placeholder="Search...">
-            <button id="searchmemberbtn">Search</button>
-        </div>
+            <div class="findCar">
+                <h3>Find Car</h3>
+                <input type="text" id="inputcarid" placeholder="Search...">
+                <button id="findcarbtn">Search</button>
+            </div>
+            <div class="findMember">
+                <h3>Find Member</h3>
+                <input type="text" id="inputmemberid" placeholder="Search...">
+                <button id="searchmemberbtn">Search</button>
+            </div>
 
+        </div>
+        <hr style="margin-top: 5%;margin-bottom:5%;"></hr>
+        <div id="addcarmember" class="findCarMember">
+            <div class="addCarTable">
+                <h2>Added Car: </h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th id="id">
+                                Id
+                            </th>
+                            <th id="brand">
+                                Brand
+                            </th>
+                            <th id="model">
+                                Model
+                            </th>
+                            <th id="priceprday">
+                                Price Pr Day
+                            </th>
+                            <th id="priceprday">
+                                Best Discount
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_addedCar">
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="addCar">
+                <h3>Add Car</h3>
+                <input type="text" id="inputBrand" placeholder="Brand">
+                <input type="text" id="inputModel" placeholder="Model">
+                <input type="text" id="inputPrice" placeholder="Price Pr Day">
+                <input type="text" id="inputDiscount" placeholder="Best Discount">
+                <button id="addcarbtn">Add Car</button>
+            </div>
+
+            <hr style="margin-top: 5%;margin-bottom:5%;"></hr>
+
+            <div class="addMemberTable">
+                <h2>Added Member: </h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th id="username">
+                                Username
+                            </th>
+                            <th id="email">
+                                E-mail
+                            </th>
+                            <th id="name">
+                                Name
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_addedMember">
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="addMember"> 
+                <h3>Add Member</h3>
+                <input type="text" id="inputUserName" placeholder="Username">
+                <input type="text" id="inputEmail" placeholder="E-mail">
+                <input type="text" id="inputPassword" placeholder="Password">
+                <input type="text" id="inputFirstName" placeholder="First Name">
+                <input type="text" id="inputLastName" placeholder="Last Name">
+                <input type="text" id="inputStreet" placeholder="Street">
+                <input type="text" id="inputCity" placeholder="City">
+                <input type="text" id="inputZip" placeholder="Zip">
+                <button id="addmemberbtn">Add Member</button>
+            </div>
+            <hr style="margin-top: 5%;margin-bottom:5%;"></hr>
 
         </div>
 

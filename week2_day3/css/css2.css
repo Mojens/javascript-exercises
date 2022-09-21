@@ -52,7 +52,7 @@
     background:#c1c8c6;
 }
 .navigationbar{
-    margin-left: 28%;
+    margin-left: 14%;
   width: 100%;
   padding: 10px;
 }
@@ -89,4 +89,39 @@ td:hover,th:hover{
     border: 1px solid rgb(0, 0, 0);
     padding: 1rem 1rem;
     vertical-align: middle;  
+}
+.addMember{
+    margin-top: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    padding-bottom: 2%;
+}
+.addCar{
+    margin-top: 1%;
+    border: 1px solid rgb(0, 0, 0);
+    padding-bottom: 2%;
+}
+.addCarTable{
+    border: 1px solid rgb(0, 0, 0);
+    padding-bottom: 2%;
+}
+.addMemberTable{
+    border: 1px solid rgb(0, 0, 0);
+    padding-bottom: 2%;
+}
+#allcarsmembers{
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+}
+#loadmemberbtn{
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem 1rem;
+    vertical-align: middle;  
+}
+#loadcarsbtn{
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem 1rem;
+    vertical-align: middle; 
 }
