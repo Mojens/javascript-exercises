@@ -59,3 +59,34 @@
 td:hover,th:hover{
     background-color: #c1c8c6;
 }
+.findCarMember{
+    margin: 1rem;
+    padding: 2rem 2rem;
+    text-align: center;
+}
+.findMember{
+    margin-top: 2%;
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem 1rem;
+    vertical-align: middle;
+}
+.findCar{
+    margin-top: 2%;
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem 1rem;
+    vertical-align: middle;
+}
+.findCarTable{
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem 1rem;
+    vertical-align: middle;  
+}
+.findMemberTable{
+    display: inline-block;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem 1rem;
+    vertical-align: middle;  
+}

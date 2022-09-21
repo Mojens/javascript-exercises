@@ -19,20 +19,22 @@
         <img src="../pictures/CarsRUS_title.png" class="ribbon" alt="" />
     </div>
     <!-- Top section END -->
-    <!-- Main section START-->
+    
     <div style="margin-left: 10%;width: 75%;margin-right: auto;margin-top: 10%;">
         <h2 style="text-align: center;">Car's 'R' Us Client Demo</h2>
+        <!-- Nav section START-->
         <div class="navigationbar">
             <ul class="nav" style="padding: 10px;margin: auto;">
                 <li class="list"><a href="#allcarsmembers" class="anav">See all Cars / Members</a></li>
-                <li class="list"><a href="#news" class="anav">News</a></li>
+                <li class="list"><a href="#findcarmember" class="anav">Find Car or Member</a></li>
                 <li class="list"><a href="#contact" class="anav">Contact</a></li>
                 <li class="list"><a href="#about" class="anav">About</a></li>
             </ul>
         </div>
-
+        <!-- Nav section END-->
+<!-- Main section START-->
         <div id="allcarsmembers">
-            <details id="loadmemberbtn">
+            <details id="loadmemberbtn" open>
                 <summary>Members</summary>
                 <table class="table">
                     <thead>
@@ -53,7 +55,7 @@
                     </tbody>
                 </table>
             </details>
-            <details id="loadcarsbtn">
+            <details id="loadcarsbtn" open>
                 <summary>Cars</summary>
                 <table class="table">
                     <thead>
@@ -77,6 +79,27 @@
                     </tbody>
                 </table>
             </details>
+        </div>
+        <div id="findcarmember" style="margin:0 auto;" class="findCarMember">
+            <div class="findCarTable">
+
+            </div>
+            <div class="findMemberTable">
+                
+            </div>
+            <br>
+        <div class="findCar">
+            <h3>Find Car</h3>
+            <input type="text" id="search" placeholder="Search...">
+            <button id="searchbtn">Search</button>
+        </div>
+        <div class="findMember">
+            <h3>Find Member</h3>
+            <input type="text" id="search" placeholder="Search...">
+            <button id="searchbtn">Search</button>
+        </div>
+
+
         </div>
 
 
