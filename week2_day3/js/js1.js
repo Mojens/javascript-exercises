@@ -40,7 +40,6 @@ function loadData() {
         .catch(e => {
             console.error(e)
         })
-    console.log("Who was called first")
 }
 
 let chosenId = document.getElementById("inputid").value;
@@ -57,7 +56,7 @@ function loadDataid(chosenId) {
             }
             return r.json()  //Returns a promise
         })
-        .then(userData =>{
+        .then(userData => {
             const userName = `<li>${userData.name}</li>`
             document.getElementById("my-ul").innerHTML = userName;
         })
@@ -67,3 +66,25 @@ function loadDataid(chosenId) {
     console.log("Who was called first")
 }
 document.getElementById("getuserbtn").onclick = () => loadDataid(chosenId);
+
+function loadDataTable() {
+    fetch(URL)
+        .then(function (r) {
+            if (!r.ok) {
+                return Promise.reject("UPPPS", r.status)
+            }
+            return r.json()  //Returns a promise
+        })
+        .then(userData => {
+            //Her kan vi arbejde med data
+            const ul = userData.map(userData =>
+                `<tr><td>${userData.name}</td><td>${userData.phone}</td></tr>`)
+            const ulAsString = ul.join("")
+            document.getElementById("tbody").innerHTML = ulAsString
+            console.log(userData)
+        })
+        .catch(e => {
+            console.error(e)
+        })
+}
+document.getElementById("loadbtntable").onclick = () => loadDataTable();
