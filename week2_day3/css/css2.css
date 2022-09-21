@@ -1,0 +1,61 @@
+.ribbon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 25%;
+}
+
+#backbtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25%;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px 1px;
+}
+
+.item {
+    background-color: lightskyblue;
+    border: 1px solid #fff;
+    padding: 5px 5px 5px 2em;
+    min-height: 250px;
+}
+
+.nav {
+    margin:0;
+    padding:0;
+    list-style:none;
+    background:white; /* you can change the backgorund color here. */
+    font-family: sans-serif;
+    font-size:13px;
+}
+.list{
+    border-left: 1px solid #c1c8c6;
+    border-right: 1px solid #c1c8c6; /* you can change the border color matching to your background color */
+    float:left;
+}
+.anav{
+    display:block;
+    padding:0 28px;
+    color:#000000;
+    text-decoration:none;
+}
+.anav:hover,.list:hover{
+    background:#c1c8c6;
+}
+.anav:active,.list:active{
+    background:#c1c8c6;
+}
+.navigationbar{
+    margin-left: 28%;
+  width: 100%;
+  padding: 10px;
+}
+td:hover,th:hover{
+    background-color: #c1c8c6;
+}
