@@ -49,3 +49,50 @@ function loadDataCar() {
         })
 }
 document.getElementById("loadcarsbtn").onclick = () => loadDataCar();
+
+let carId = document.getElementById("inputcarid").value;
+
+function loadDataCarById(carId) {
+    carId = document.getElementById("inputcarid").value;
+    let newURL = URL_CAR + carId;
+    fetch(newURL)
+        .then(function (r) {
+            if (!r.ok) {
+                return Promise.reject("UPPPS", r.status)
+            }
+            return r.json()  //Returns a promise
+        })
+        .then(carData => {
+            const tr = `<tr><td>${carData.id}</td><td>${carData.brand}</td><td>${carData.model}</td><td>${carData.pricePrDay}</td></tr>`
+            console.log(carData)
+            document.getElementById("tbody_findcar").innerHTML = tr
+        })
+        .catch(e => {
+            console.error(e)
+        })
+}
+document.getElementById("findcarbtn").onclick = () => loadDataCarById(carId);
+
+let memberId = document.getElementById("inputmemberid").value;
+
+function loadDataMemberByUserName(memberId) {
+    memberId = document.getElementById("inputmemberid").value;
+    let NEW_MEMBER_URL = URL_MEMBER + memberId;
+    fetch(NEW_MEMBER_URL)
+        .then(function (r) {
+            if (!r.ok) {
+                return Promise.reject("UPPPS", r.status)
+            }
+            return r.json()  //Returns a promise
+        })
+        .then(memberData => {
+            //Her kan vi arbejde med data
+            const member = `<tr><td>${memberData.username}</td><td>${memberData.email}</td><td>${memberData.firstName + " " + memberData.lastName}</td></tr>`
+            
+                document.getElementById("tbody_findmember").innerHTML = member
+            })
+        .catch(e => {
+            console.error(e)
+        })
+}
+document.getElementById("searchmemberbtn").onclick = () => loadDataMemberByUserName(memberId);
