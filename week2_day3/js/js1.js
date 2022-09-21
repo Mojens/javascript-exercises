@@ -16,5 +16,6 @@ fetch(URL)
 })
 .then(data =>{
     console.log(data);
+    console.log(data[0].name);
 })
 console.log("Who was called first")
