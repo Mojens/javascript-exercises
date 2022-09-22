@@ -183,25 +183,10 @@ function loadDataMemberByUserName2(memberId2) {
 
 document.getElementById("searchmemberbtn2").onclick = () => loadDataMemberByUserName2(memberId2);
 
-function readRowId(){
-    let row = document.getElementById("found2membertable").rows[1];
-    console.log(row);
-    let id = row.cells[0].innerHTML;
-    console.log(id);
-}
-
-
 
 function editMember() {
     let row = document.getElementById("found2membertable").rows[1];
     let id = row.cells[0].innerHTML;
-if(document.getElementById("inputEmailEdit").value === ""){
-
-}
-
-
-
-
     const editedMember = {
         method: "PUT",
         headers: { "Content-type": "application/json" },
@@ -216,26 +201,79 @@ if(document.getElementById("inputEmailEdit").value === ""){
             zip: document.getElementById("inputZipEdit").value
         })
     }
-    
-    let NEW_MEMBER_URL = URL_MEMBER + id;
-    fetch(NEW_MEMBER_URL,editedMember)
-    .then(r => r.json())
-    .then(editedMemberData => {
-        document.getElementById("succesfulEdit").innerHTML = "Member: "+ id +", is now edited"
-        console.log(editedMemberData)
 
-    })
-    .catch(e => {
-        document.getElementById("failedEdit").innerHTML = "Member: "+ id +", is not edited"
-        console.error(e)
-    })
+    let NEW_MEMBER_URL = URL_MEMBER + id;
+    fetch(NEW_MEMBER_URL, editedMember)
+        .then(r => r.json())
+        .then(editedMemberData => {
+            document.getElementById("succesfulEdit").innerHTML = "Member: " + id + ", is now edited"
+            console.log(editedMemberData)
+
+        })
+        .catch(e => {
+            document.getElementById("failedEdit").innerHTML = "Member: " + id + ", is not edited"
+            console.error(e)
+        })
 
 }
 document.getElementById("editmemberbtn").onclick = () => editMember();
 
+let carId2 = document.getElementById("inputcarid2").value;
+function loadDataCarById2(carId2) {
+    carId2 = document.getElementById("inputcarid2").value;
+    let NEW_CAR_URL = URL_CAR + carId2;
+    fetch(NEW_CAR_URL)
+        .then(function (r) {
+            if (!r.ok) {
+                return Promise.reject("UPPPS", r.status)
+            }
+            return r.json()  //Returns a promise
+        })
+        .then(carData => {
+            //Her kan vi arbejde med data
+            const car = `<tr><td>${carData.id}</td><td>${carData.brand}</td><td>${carData.model}</td><td>${carData.pricePrDay + " DKK"}</td></tr>`
+
+            document.getElementById("tbody_findcar2").innerHTML = car
+            console.log(carData)
+            return carData;
+        })
+        .catch(e => {
+            document.getElementById("tbody_findcar2").innerHTML = "<tr><td>No car found</td><td>No car found</td><td>No car found</td><td>No car found</td><td>No car found</td></tr>"
+            console.error(e)
+        })
+}
+document.getElementById("searchcarbtn2").onclick = () => loadDataCarById2(carId2);
+
+
 function editCar() {
+    let row = document.getElementById("found2cartable").rows[1];
+    let foundCarId = row.cells[0].innerHTML;
+    const editedCar = {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+            id: foundCarId,
+            brand: document.getElementById("inputBrandEdit").value,
+            model: document.getElementById("inputModelEdit").value,
+            pricePrDay: document.getElementById("inputPriceEdit").value
+        })
+    }
+    let NEW_CAR_URL = URL_CAR + foundCarId;
+    fetch(NEW_CAR_URL, editedCar)
+        .then(r => r.json())
+        .then(editedCarData => {
+            document.getElementById("succesfulEditCar2").innerHTML = "Car with id: " + foundCarId + ", is now edited"
+            console.log(editedCarData)
+
+        })
+        .catch(e => {
+            document.getElementById("failedEditCar2").innerHTML = "Car with id: " + foundCarId + ", is not edited"
+            console.error(e)
+        })
+
 
 }
+document.getElementById("editcarbtn").onclick = () => editCar();
 
 
 

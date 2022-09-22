@@ -228,47 +228,88 @@
             </div>
             <hr style="margin-top: 5%;margin-bottom:5%;">
             </hr>
-            <div class="findMemberTable">
-                <h3>Chosen Member</h3>
-                <p id="succesfulEdit"></p>
-                <p id="failedEdit"></p>
-                <table class="table" id="found2membertable">
-                    <thead>
-                        <tr>
-                            <th id="username">
-                                Username
-                            </th>
-                            <th id="email">
-                                E-mail
-                            </th>
-                            <th id="name">
-                                Name
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody_findmember2">
-                
-                    </tbody>
-                </table>
-    
+            <div id="editcarmember">
+                <div class="findMemberTable">
+                    <h3>Chosen Member</h3>
+                    <p id="succesfulEdit"></p>
+                    <p id="failedEdit"></p>
+                    <table class="table" id="found2membertable">
+                        <thead>
+                            <tr>
+                                <th id="username">
+                                    Username
+                                </th>
+                                <th id="email">
+                                    E-mail
+                                </th>
+                                <th id="name">
+                                    Name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_findmember2">
+
+                        </tbody>
+                    </table>
+
                     <h6>Edit Member</h4>
-                    <input type="text" id="inputEmailEdit" placeholder="E-mail">
-                    <input type="text" id="inputPasswordEdit" placeholder="Password">
-                    <input type="text" id="inputFirstNameEdit" placeholder="First Name">
-                    <input type="text" id="inputLastNameEdit" placeholder="Last Name">
-                    <input type="text" id="inputStreetEdit" placeholder="Street">
-                    <input type="text" id="inputCityEdit" placeholder="City">
-                    <input type="text" id="inputZipEdit" placeholder="Zip">
-                    <button id="editmemberbtn">Edit Member</button>
-            
-            </div>
-            <div class="findMember">
-                <h3>Find Member to edit</h3>
-                <input type="text" id="inputmemberid2" placeholder="Search...">
-                <button id="searchmemberbtn2">Search</button>
+                        <input type="text" id="inputEmailEdit" placeholder="E-mail" required>
+                        <input type="text" id="inputPasswordEdit" placeholder="Password" required>
+                        <input type="text" id="inputFirstNameEdit" placeholder="First Name" required>
+                        <input type="text" id="inputLastNameEdit" placeholder="Last Name" required>
+                        <input type="text" id="inputStreetEdit" placeholder="Street" required>
+                        <input type="text" id="inputCityEdit" placeholder="City" required>
+                        <input type="text" id="inputZipEdit" placeholder="Zip" required>
+                        <button id="editmemberbtn">Edit Member</button>
+
+                </div>
+                <div class="findMember">
+                    <h3>Find Member to edit</h3>
+                    <input type="text" id="inputmemberid2" placeholder="Search...">
+                    <button id="searchmemberbtn2">Search</button>
+                </div>
+                <hr style="margin-top: 5%;margin-bottom:5%;">
+                </hr>
+                <div class="findMemberTable">
+                    <h3>Chosen Car</h3>
+                    <p id="succesfulEditCar2"></p>
+                    <p id="failedEditCar2"></p>
+                    <table class="table" id="found2cartable">
+                        <thead>
+                            <tr>
+                                <th id="id">
+                                    Id
+                                </th>
+                                <th id="brand">
+                                    Brand
+                                </th>
+                                <th id="model">
+                                    Model
+                                </th>
+                                <th id="priceprday">
+                                    Price Pr Day
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_findcar2">
+
+                        </tbody>
+                    </table>
+
+                    <h6>Edit Car</h4>
+                        <input type="text" id="inputBrandEdit" placeholder="Brand" required>
+                        <input type="text" id="inputModelEdit" placeholder="Model" required>
+                        <input type="text" id="inputPriceEdit" placeholder="Price Pr Day" required>
+                        <button id="editcarbtn">Edit Car</button>
+
+                </div>
+                <div class="findMember">
+                    <h3>Find Car to edit</h3>
+                    <input type="text" id="inputcarid2" placeholder="Search...">
+                    <button id="searchcarbtn2">Search</button>
+                </div>
             </div>
         </div>
-
 
 
     </div>
