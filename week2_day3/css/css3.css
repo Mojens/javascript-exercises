@@ -1,7 +1,9 @@
 #backbtn {
     position: absolute;
+    align-items: right;
+    justify-self: right;
     top: 10px;
-    left: 10px;
+    left: 90%;
 }
 
 .border-wrap {
@@ -10,10 +12,4 @@
     display: inline-block;
     line-height: 0px;
     height: 100%;
-}
-
-.render-shell {
-    text-align: center;
-    background-color: var(--color-bg-secondary);
-    padding: 30px;
 }
