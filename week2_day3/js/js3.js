@@ -1,50 +1,75 @@
-let originalCountry;
-let originalFill;
-document.getElementById("svg2").onclick = (evt) => {
-  const countryNode = evt.target;
-  const isoCode = countryNode.id;
-  console.log(isoCode)
-  if (originalCountry) {
-    originalCountry.style.fill = originalFill
+let URL = "https://countries.plaul.dk/api/countries/";
+let alreadyChosenCountry;
+let countryColor;
+let currencyInfo;
+
+function clickCountry(MouseEvent) {
+  // Color by click and getCountryCode
+  let chosenCountry = MouseEvent.target;
+  if (alreadyChosenCountry) {
+    alreadyChosenCountry.style.fill = countryColor;
+    document.getElementById("infoBox").style.display = "none"
+  }
+  alreadyChosenCountry = chosenCountry;
+  countryColor = chosenCountry.style.fill;
+  chosenCountry.style.fill = "blue"
+
+  //Country info
+  let countryCode = chosenCountry.id;
+  console.log(countryCode);
+  if (countryCode > 2) {
+    document.getElementById("infoBox").style.display = "inline-block"
+    document.getElementById("warningInfo").style.display = "inline-block"
     document.getElementById("info").style.display = "none"
+    document.getElementById("warningInfo").innerHTML = "No country selected";
   }
-  originalCountry = countryNode
-  originalFill = countryNode.style.fill
-  countryNode.style.fill = "steelblue"
-  if (isoCode === "ru") {
-    countryNode.style.fill = "green"
+  else {
+    let NEW_URL = URL + countryCode;
+    console.log(NEW_URL);
+    fetch(NEW_URL)
+      .then(response => {
+        if (response.status >= 400) {
+          document.getElementById("infoBox").style.display = "inline-block"
+          document.getElementById("warningInfo").style.display = "inline-block"
+          document.getElementById("info").style.display = "none"
+          document.getElementById("warningInfo").innerHTML = "Country data not found";
+        }
+        return response.json()
+      })
+      .then(data => {
+        if (data.code == undefined) {
+          document.getElementById("warningInfo").style.display = "none";
+          document.getElementById("infoBox").style.display = "inline-block"
+          document.getElementById("info").style.display = "inline-block"
+          document.getElementById("countryName").innerHTML = data.name.common;
+          if (data.unMember == true) {
+            document.getElementById("unMember").innerHTML = "Yes";
+          } else if (data.unMember == false) {
+            document.getElementById("unMember").innerHTML = "No";
+          }
+
+          for (currencyInfo in data.currencies) {
+            let currency = `Currency: ${currencyInfo}<br>Name: ${data.currencies[currencyInfo].name}`;
+            document.getElementById("currencyInfo").innerHTML = currency;
+          }
+          document.getElementById("capital").innerHTML = data.capital;
+          document.getElementById("borders").innerHTML = data.borders.join(", ");
+        
+          document.getElementById("flag").setAttribute("src", data.flag)
+
+
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        document.getElementById("infoBox").style.display = "inline-block"
+        document.getElementById("warningInfo").style.display = "inline-block"
+        document.getElementById("info").style.display = "none"
+        document.getElementById("warningInfo").innerHTML = "Country data not found";
+      })
   }
-  if (isoCode === "ua") {
-    countryNode.style.fill = "black"
-  }
+}
 
-
-  if (isoCode.length > 2) {
-    return //No need to fetch
-  }
-  fetch(`https://countries.plaul.dk/api/countries/${isoCode}`)
-    .then(res => {
-      if (res.status >= 400) {
-        throw `No data found for [${isoCode}`
-      }
-      return res.json()
-    })
-    .then(info => {
-      document.getElementById("info").style.display = "block"
-      document.getElementById("name").innerText = info.name.common
-      document.getElementById("un-member").innerText = info.unMember
-      let currencies = [];
-      for (prop in info.currencies) {
-        currencyAsString = `${prop}, name: ${info.currencies[prop].name}, symbol: ${info.currencies[prop].symbol}`
-        currencies.push(currencyAsString)
-      }
-      document.getElementById("currencies").innerText = currencies.join(" - ")
-      document.getElementById("capital").innerText = info.capital
-      document.getElementById("borders").innerText = info.borders.join(",")
-      document.getElementById("flag").setAttribute("src", info.flag)
-
-    })
-    .catch(e => console.log(e))
-
-
+document.getElementById("svg2").onclick = (MouseEvent) => {
+  clickCountry(MouseEvent);
 }
