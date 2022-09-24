@@ -54,7 +54,8 @@ function clickCountry(MouseEvent) {
           }
           document.getElementById("capital").innerHTML = data.capital;
           document.getElementById("borders").innerHTML = data.borders.join(", ");
-        
+      
+          //set attribute src til den data der kommer fra objektens data.flag, src kommer fra html tagget
           document.getElementById("flag").setAttribute("src", data.flag)
 
 
